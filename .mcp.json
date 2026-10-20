@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "sai": {
+      "command": "npx",
+      "args": ["-y", "@simular-ai/sai-mcp@0.3.0"],
+      "env": {
+        "SAI_API_KEY": "${user_config.api_key}"
+      }
+    }
+  }
+}

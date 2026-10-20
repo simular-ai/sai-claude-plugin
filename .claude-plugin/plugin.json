@@ -1,0 +1,20 @@
+{
+  "name": "sai",
+  "displayName": "Sai",
+  "version": "0.1.0",
+  "description": "Give Claude a computer. Hand tasks that need a screen (web apps behind a login, admin consoles, desktop software, forms with no import) to Sai, Simular's computer-use agent, running on a cloud computer.",
+  "author": { "name": "Simular", "url": "https://simular.ai" },
+  "homepage": "https://platform.simular.ai",
+  "repository": "https://github.com/simular-ai/sai-claude-plugin",
+  "license": "MIT",
+  "keywords": ["computer-use", "browser-automation", "desktop-automation", "agent"],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Sai API key",
+      "description": "Your Sai API key (sapi_…). Create one at https://platform.simular.ai/api-keys.",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}
