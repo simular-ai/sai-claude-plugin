@@ -11,7 +11,8 @@ import. Sai runs on a cloud computer Simular hosts; the free plan includes one.
 
 1. Sign in at [platform.simular.ai](https://platform.simular.ai) and create an
    API key under [API Keys](https://platform.simular.ai/api-keys).
-2. Install the plugin from `/plugin` in Claude Code. When asked, paste the API
+2. Install the plugin from `/plugin` in Claude Code (it is listed as
+   `simular-sai`). When asked, paste the API
    key. It is stored in Claude Code's secure storage, not in a settings file.
 
 Then ask Claude something like: "Use Sai to open Notepad on my cloud computer,
@@ -21,10 +22,12 @@ type Hello from Sai, and tell me the window title."
 
 - **MCP server** `sai`: the open-source
   [`@simular-ai/sai-mcp`](https://www.npmjs.com/package/@simular-ai/sai-mcp)
-  package, pinned to an exact version and started with `npx`. Tools: start a
+  package, pinned to an exact version in `package-lock.json` (with registry
+  hashes) and started with `node`. Claude Code installs it when it installs the
+  plugin, with install scripts off. Tools: start a
   task, wait for it, answer permission requests, stop it, upload a file, list
   computers and models.
-- **Skill** `sai`: tells Claude when to hand a task to Sai and how to run it to
+- **Skill** `sai` (`/simular-sai:sai`): tells Claude when to hand a task to Sai and how to run it to
   the end, including permission requests and sign-in links.
 
 ## Data and network
@@ -35,8 +38,8 @@ type Hello from Sai, and tell me the window title."
   account.
 - It serves a live view of the task on `127.0.0.1` on your own computer, linked
   as `watch_url`. Your API key never reaches the browser.
-- `npx` downloads the pinned `@simular-ai/sai-mcp` package from the npm
-  registry the first time it runs.
+- Claude Code downloads the locked `@simular-ai/sai-mcp` package and its
+  dependencies from the npm registry when it installs the plugin.
 - The plugin stores nothing itself and has no hooks.
 
 Privacy policy: [simular.ai/product-sai/privacy](https://www.simular.ai/product-sai/privacy).
