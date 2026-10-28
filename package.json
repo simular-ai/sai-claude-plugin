@@ -1,9 +1,0 @@
-{
-  "name": "simular-sai-claude-plugin",
-  "private": true,
-  "description": "Pins the Sai MCP server that this plugin runs. Claude Code installs it from package-lock.json.",
-  "license": "MIT",
-  "dependencies": {
-    "@simular-ai/sai-mcp": "0.3.0"
-  }
-}

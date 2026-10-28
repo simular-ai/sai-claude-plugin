@@ -1,0 +1,91 @@
+{
+  "source": "https://github.com/simular-ai/sai-sdk",
+  "revision": "d24e862c06ef36d99ae9b6657096df18ff06dd40",
+  "version": "0.3.0",
+  "esbuild": "0.28.1",
+  "dependencies": {
+    "@simular-ai/sai-mcp": "0.3.0",
+    "@modelcontextprotocol/sdk": "1.31.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "fast-deep-equal": "3.1.3",
+    "fast-uri": "3.1.8",
+    "json-schema-traverse": "1.0.0",
+    "zod": "3.25.76",
+    "zod-to-json-schema": "3.25.2"
+  },
+  "files": {
+    "ajv.mjs": {
+      "bytes": 229,
+      "sha256": "5c532f97196a370c12d0ee69aad5e039233a3eaad0c63833844d8360a4ec8298"
+    },
+    "chunk-4TBZ6BFZ.mjs": {
+      "bytes": 223139,
+      "sha256": "36fcb8a19587298dc07c223b19c3285dab7e7c5c882ba04ddb786bc34eb5dc65"
+    },
+    "chunk-66HR5ZBY.mjs": {
+      "bytes": 122750,
+      "sha256": "cb9659a0df9bb58570d2eb976195dcdfd181e60c513dfedc0c0fb47f17e1d68d"
+    },
+    "chunk-FD3OVPE3.mjs": {
+      "bytes": 114,
+      "sha256": "91eb3de47895f584d53a5a732dd96920db6873fe3e5aa160a97c98bc874708d8"
+    },
+    "chunk-G3PKR6VD.mjs": {
+      "bytes": 131905,
+      "sha256": "4925456df691a57b049a7543aa7574b616bf7991d781994b99fe1fee2234ee36"
+    },
+    "chunk-MNLAVQJF.mjs": {
+      "bytes": 270,
+      "sha256": "880611ff9b5abc170677751936334c18ef13a4d8bc6309d681f2a19cf09eeb74"
+    },
+    "chunk-ONEDPEGL.mjs": {
+      "bytes": 224427,
+      "sha256": "1b01be156cc46b02ca1042c58654b53b21d7f65546432b671586349cb739ce32"
+    },
+    "chunk-SUH7JHCB.mjs": {
+      "bytes": 261573,
+      "sha256": "d7250b575d9f78af857d49f708f8b69d390302b2eefe6fe012cff40693f2d26e"
+    },
+    "chunk-TJPUDVPO.mjs": {
+      "bytes": 1663,
+      "sha256": "4b147cb3e1709f5928fea86610b1ac9bf92aaa227d00044725704301c7544ec6"
+    },
+    "chunk-V7C3VJE5.mjs": {
+      "bytes": 172003,
+      "sha256": "5b450819bd2509729e6e67ab845fe6409e1c3d5555ad64e1d9f10753fc9ef94b"
+    },
+    "chunk-VA2N4RH4.mjs": {
+      "bytes": 83446,
+      "sha256": "651871a8ad9ace0b0950bd9ff812a3b2183296d8a27ffee0240295a4de3330bc"
+    },
+    "sdk-mcp.mjs": {
+      "bytes": 478,
+      "sha256": "4bc24937777f084e8012b008f5797c64bf9bcea11046ce8f37a3a74cef8f3ca6"
+    },
+    "sdk-types.mjs": {
+      "bytes": 9611,
+      "sha256": "ade0a27031cfb938542b3824f2e476e254aa263238d7a4e97e3530a4554b6971"
+    },
+    "server.mjs": {
+      "bytes": 71679,
+      "sha256": "16146ddb0eb71012f489a1c68feda57b8887a19d1b7bbba334ff1b9ebe361d90"
+    },
+    "task-view.mjs": {
+      "bytes": 587,
+      "sha256": "e49c3a60e19139ddd43c255203a78dd0b194eea2b5212e66b90bab2718757d3c"
+    },
+    "zod-locales.mjs": {
+      "bytes": 1548,
+      "sha256": "72e1e9f572d738bb5a0a5e7ec98e3dff8510ec75aa77dbc6383c343a1ece612d"
+    },
+    "zod-v3.mjs": {
+      "bytes": 3643,
+      "sha256": "104e46578c1b3af2d622f1623f4fd3d3004be9d403160f86bdfa58aaa664d30c"
+    },
+    "zod-v4.mjs": {
+      "bytes": 6972,
+      "sha256": "57c3ffa25d89f67301a790ea1b8a177b55e484bad2177f9f868b68439d3101a2"
+    }
+  }
+}

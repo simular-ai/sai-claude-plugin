@@ -15,6 +15,8 @@ server. They do **not** run in claude.ai chat. See
 
 ## Install
 
+Requires Node.js 22.12 or later on your computer.
+
 1. Sign in at [platform.simular.ai](https://platform.simular.ai) and create an
    API key under [API Keys](https://platform.simular.ai/api-keys).
 2. Install the plugin from `/plugin` in Claude Code (it is listed as
@@ -28,9 +30,9 @@ type Hello from Sai, and tell me the window title."
 
 - **MCP server** `sai`: the open-source
   [`@simular-ai/sai-mcp`](https://www.npmjs.com/package/@simular-ai/sai-mcp)
-  package, pinned to an exact version in `package-lock.json` (with registry
-  hashes) and started with `node`. Claude Code installs it when it installs the
-  plugin, with install scripts off. Tools: start a
+  package, version 0.3.0, bundled as readable JavaScript modules and started
+  with `node`. No npm install or package download runs during plugin installation
+  or startup. Tools: start a
   task, wait for it, answer permission requests, stop it, upload a file, list
   computers and models.
 - **Skill** `sai` (`/simular-sai:sai`): tells Claude when to hand a task to Sai and how to run it to
@@ -44,9 +46,9 @@ type Hello from Sai, and tell me the window title."
   account.
 - It serves a live view of the task on `127.0.0.1` on your own computer, linked
   as `watch_url`. Your API key never reaches the browser.
-- Claude Code downloads the locked `@simular-ai/sai-mcp` package and its
-  dependencies from the npm registry when it installs the plugin.
-- The plugin stores nothing itself and has no hooks.
+- The server and its dependencies ship with the plugin. Its local task-view
+  support keeps task metadata in memory for the running process. The plugin has
+  no hooks.
 
 Privacy policy: [simular.ai/product-sai/privacy](https://www.simular.ai/product-sai/privacy).
 Support: [support@simular.ai](mailto:support@simular.ai).
@@ -58,15 +60,28 @@ connectors. Its plugin ID remains `simular-sai`, so the skill command is still
 `/simular-sai:sai`. A name or publisher hold must be cleared by the directory
 reviewer; changing the display name does not itself grant approval.
 
-The server is launched with `node`, not `npx`. Keep both `package.json` and
-`package-lock.json`: together they pin `@simular-ai/sai-mcp` and its dependency
-tree. The directory's suggestion to bundle files smaller than 256 KiB is an
-optional alternative to installing dependencies, not a requirement to delete
-the lockfile from this package.
+The server is launched with `node` from `runtime/server.mjs`. Each bundled
+JavaScript file is smaller than 256 KiB and is not minified. There is no
+install-time dependency manifest or lockfile. Runtime code does not load the
+listing artwork or this document as code.
 
 The `icon` field is for the directory listing; Claude Code ignoring it at load
-time is expected. The scanner's notice that it accepted `.claude-plugin/icon.png`
-as an image is informational.
+time is expected. The listing artwork is a PNG, not an executable resource.
+
+## Rebuilding and verifying
+
+Run `node scripts/build-runtime.mjs` with Node.js, npm, GitHub CLI and tar
+available. This maintainer-only build downloads upstream revision
+`d24e862c06ef36d99ae9b6657096df18ff06dd40` of `simular-ai/sai-sdk`, installs its
+locked build dependencies in a temporary directory with lifecycle scripts
+disabled, and rebuilds the runtime. End users do not run this command.
+
+`runtime/provenance.json` records the source revision, dependency versions and
+SHA-256 hashes of the output modules. Third-party licenses are included in
+`runtime/THIRD-PARTY-NOTICES.txt`.
+
+Run `node scripts/check-runtime.mjs` to check file sizes and hashes and exercise
+the stdio MCP server from a clean temporary copy without installed dependencies.
 
 ## License
 
