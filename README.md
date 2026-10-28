@@ -1,4 +1,4 @@
-# Sai for Claude Code
+# Sai by Simular
 
 Give Claude a computer. This plugin lets Claude Code hand tasks to
 [Sai](https://platform.simular.ai), Simular's computer-use agent, #1 on
@@ -7,12 +7,18 @@ screen, clicking and typing, so Claude can get work done where there is no
 API: web apps behind a login, admin consoles, desktop software, forms with no
 import. Sai runs on a cloud computer Simular hosts; the free plan includes one.
 
+## Compatibility
+
+The Sai tools run in **Claude Code and Cowork** through a local stdio MCP
+server. They do **not** run in claude.ai chat. See
+[Claude's plugin compatibility documentation](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+
 ## Install
 
 1. Sign in at [platform.simular.ai](https://platform.simular.ai) and create an
    API key under [API Keys](https://platform.simular.ai/api-keys).
 2. Install the plugin from `/plugin` in Claude Code (it is listed as
-   `simular-sai`). When asked, paste the API
+   **Sai by Simular**, with plugin ID `simular-sai`). When asked, paste the API
    key. It is stored in Claude Code's secure storage, not in a settings file.
 
 Then ask Claude something like: "Use Sai to open Notepad on my cloud computer,
@@ -44,6 +50,23 @@ type Hello from Sai, and tell me the window title."
 
 Privacy policy: [simular.ai/product-sai/privacy](https://www.simular.ai/product-sai/privacy).
 Support: [support@simular.ai](mailto:support@simular.ai).
+
+## Directory review notes
+
+The listing uses **Sai by Simular** to distinguish it from similarly named
+connectors. Its plugin ID remains `simular-sai`, so the skill command is still
+`/simular-sai:sai`. A name or publisher hold must be cleared by the directory
+reviewer; changing the display name does not itself grant approval.
+
+The server is launched with `node`, not `npx`. Keep both `package.json` and
+`package-lock.json`: together they pin `@simular-ai/sai-mcp` and its dependency
+tree. The directory's suggestion to bundle files smaller than 256 KiB is an
+optional alternative to installing dependencies, not a requirement to delete
+the lockfile from this package.
+
+The `icon` field is for the directory listing; Claude Code ignoring it at load
+time is expected. The scanner's notice that it accepted `.claude-plugin/icon.png`
+as an image is informational.
 
 ## License
 
