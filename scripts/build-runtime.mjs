@@ -69,7 +69,7 @@ for (const dir of [...packages].sort()) {
   if (!license) throw new Error(`Missing license: ${pkg.name}`);
   licenses += `=== ${pkg.name}@${pkg.version} (${pkg.license}) ===\n\n${readFileSync(join(dir, license), 'utf8')}\n\n`;
 }
-writeFileSync(join(output, 'THIRD-PARTY-NOTICES.txt'), licenses);
+writeFileSync(join(output, 'THIRD-PARTY-NOTICES.txt'), licenses.trimEnd() + '\n');
 writeFileSync(join(output, 'provenance.json'), JSON.stringify({ source: 'https://github.com/simular-ai/sai-sdk', revision,
   version, esbuild: '0.28.1', dependencies, files }, null, 2) + '\n');
 console.log(`Built ${Object.keys(files).length} readable modules; largest ${Math.max(...Object.values(files).map(f => f.bytes))} bytes.`);
