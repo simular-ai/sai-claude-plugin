@@ -24,6 +24,43 @@ server. They do **not** run in claude.ai chat. See
 Then ask Claude something like: "Use Sai to open Notepad on my cloud computer,
 type Hello from Sai, and tell me the window title."
 
+## Install in OpenClaw
+
+OpenClaw loads this repository as a Claude bundle (skill and MCP server). It
+does not support Claude Code's API key prompt, so the key comes from the
+`SAI_API_KEY` environment variable instead.
+
+1. Install the bundle:
+
+   ```bash
+   openclaw plugins install git:github.com/simular-ai/sai-claude-plugin
+   ```
+
+2. Put your API key where the OpenClaw Gateway can read it, for example in
+   `~/.openclaw/.env`:
+
+   ```bash
+   SAI_API_KEY=sapi_YOUR_KEY
+   ```
+
+3. Point the `sai` MCP server at that variable. A server in your OpenClaw
+   config replaces the bundle's server of the same name:
+
+   ```bash
+   openclaw mcp set sai '{"command":"npx","args":["-y","@simular-ai/sai-mcp@0.4.0"],"env":{"SAI_API_KEY":"${SAI_API_KEY}"}}'
+   ```
+
+   Keep the single quotes so your shell does not expand `${SAI_API_KEY}`;
+   OpenClaw resolves it when it loads the config. Without this step the server
+   starts without a usable key and every call is rejected.
+
+Check it with `openclaw plugins inspect sai` and `openclaw mcp status`.
+
+## Install in Hermes
+
+See [hermes/README.md](hermes/README.md). The `hermes/` folder is a portable
+Agent Plugins package with the same skill and MCP server.
+
 ## What it contains
 
 - **MCP server** `sai`: the open-source
@@ -35,6 +72,19 @@ type Hello from Sai, and tell me the window title."
   computers and models, and hand the screen to a person with a link.
 - **Skill** `sai` (`/simular-sai:sai`): tells Claude when to hand a task to Sai and how to run it to
   the end, including permission requests and sign-in links.
+
+Each host reads its own files from the same repository:
+
+| Host        | Manifest                     | MCP config  | API key from                    |
+| ----------- | ---------------------------- | ----------- | ------------------------------- |
+| Claude Code | `.claude-plugin/plugin.json` | `.mcp.json` | the install prompt (`userConfig`) |
+| OpenClaw    | `.claude-plugin/plugin.json` | `.mcp.json`, overridden in your OpenClaw config | `SAI_API_KEY` |
+| Hermes      | `hermes/plugin.json`         | `hermes/mcp.json` | Settings > Plugins or `SAI_API_KEY` |
+
+All three run the same pinned `@simular-ai/sai-mcp` version and the same skill
+(`hermes/skills/sai/SKILL.md` is a copy of `skills/sai/SKILL.md`). When you bump
+the version or edit the skill, change it in `package.json`, `hermes/mcp.json`,
+both skill files and the OpenClaw command above.
 
 ## Data and network
 
