@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "sai": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@simular-ai/sai-mcp@0.4.0"],
+      "env": {
+        "SAI_API_KEY": "${SAI_API_KEY}"
+      }
+    }
+  }
+}
