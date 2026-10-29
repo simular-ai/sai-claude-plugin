@@ -118,6 +118,18 @@ The `icon` field is for the directory listing; Claude Code ignoring it at load
 time is expected. The scanner's notice that it accepted `.claude-plugin/icon.png`
 as an image is informational.
 
+## ClawHub listing metadata
+
+ClawHub reads the listing title from `package.json.displayName` and the
+summary from `package.json.description`. Keep those fields user-facing.
+Its logo must be at `assets/icon.png`; keep that file identical to
+`.claude-plugin/icon.png` when updating the Sai logo.
+
+Publish with `clawhub package publish . --family bundle-plugin --bundle-format claude --wait`.
+The release version comes from `package.json.version`; keep the lockfile and
+Claude plugin manifest version in sync. Run the same command with `--dry-run`
+before publishing to check the title, version, and source attribution.
+
 ## License
 
 MIT

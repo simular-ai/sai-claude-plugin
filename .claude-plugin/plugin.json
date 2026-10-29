@@ -1,7 +1,7 @@
 {
   "name": "simular-sai",
   "displayName": "Sai by Simular",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Give Claude a computer. Hand tasks that need a screen (web apps behind a login, admin consoles, desktop software, forms with no import) to Sai, Simular's computer-use agent, running on a cloud computer.",
   "author": {
     "name": "Simular",
@@ -21,7 +21,7 @@
     "api_key": {
       "type": "string",
       "title": "Sai API key",
-      "description": "Your Sai API key (sapi_…). Create one at https://platform.simular.ai/api-keys.",
+      "description": "Your Sai API key (sapi_\u2026). Create one at https://platform.simular.ai/api-keys.",
       "sensitive": true,
       "required": true
     }
