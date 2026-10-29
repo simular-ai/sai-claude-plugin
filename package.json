@@ -1,7 +1,7 @@
 {
   "name": "simular-sai-claude-plugin",
   "private": true,
-  "description": "Give OpenClaw a cloud computer to automate websites and desktop apps.",
+  "description": "Give your AI agent a cloud computer to automate websites and desktop apps.",
   "license": "MIT",
   "dependencies": {
     "@simular-ai/sai-mcp": "0.4.0"

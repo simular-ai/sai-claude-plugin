@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "sai": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@simular-ai/sai-mcp@0.4.0"
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "simular-sai-claude-plugin",
+  "private": true,
+  "description": "Give OpenClaw a cloud computer to automate websites and desktop apps.",
+  "license": "MIT",
+  "displayName": "Sai by Simular",
+  "version": "0.1.4"
+}
