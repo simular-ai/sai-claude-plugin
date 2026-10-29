@@ -23,6 +23,8 @@ Sai remembers earlier tasks on the same computer. Pass `new_session: true` to st
 
 Each `sai_task_start` reply includes a `watch_url`. Offer it to the user: it shows the computer's screen live, Sai's steps and any permission requests.
 
+The `watch_url` view never takes input. When Sai needs the user on the screen itself (a captcha, a sign-in inside a page), call `sai_live_link` and give them its `live_url`: they can use the mouse and keyboard there in a browser, with no Simular sign-in. Anyone with the link can use the computer until `expires_at`, so tell them not to share it. When they say they are done, send Sai a message to carry on.
+
 ## Replay as code
 
 After a task works, the user can ask Sai to save it as a replayable skill with parameters ("Save this as invoice_export, with vendor and month as parameters"). Later runs replay that code and ask the model only where the screen matters.

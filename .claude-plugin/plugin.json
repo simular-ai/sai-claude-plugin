@@ -1,7 +1,7 @@
 {
   "name": "simular-sai",
   "displayName": "Sai by Simular",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Give Claude a computer. Hand tasks that need a screen (web apps behind a login, admin consoles, desktop software, forms with no import) to Sai, Simular's computer-use agent, running on a cloud computer.",
   "author": {
     "name": "Simular",
