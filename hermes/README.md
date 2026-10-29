@@ -14,14 +14,15 @@ no code of its own.
 
 1. Sign in at [platform.simular.ai](https://platform.simular.ai) and create an
    API key under [API Keys](https://platform.simular.ai/api-keys).
-2. Put the key in your Hermes profile's `.env` (or your shell) as
-   `SAI_API_KEY=sapi_...`.
-3. Install and enable the plugin:
+2. Install and enable the plugin:
 
    ```bash
    hermes plugins install simular-sai --no-enable
    hermes plugins enable simular-sai
    ```
+
+3. Set the key in the Desktop under Settings > Plugins, or put
+   `SAI_API_KEY=sapi_...` in your Hermes profile's `.env` (or your shell).
 
 Requires Node.js 22.12 or later and npm, because the MCP server runs through
 `npx`.
