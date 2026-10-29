@@ -32,7 +32,7 @@ type Hello from Sai, and tell me the window title."
   hashes) and started with `node`. Claude Code installs it when it installs the
   plugin, with install scripts off. Tools: start a
   task, wait for it, answer permission requests, stop it, upload a file, list
-  computers and models.
+  computers and models, and hand the screen to a person with a link.
 - **Skill** `sai` (`/simular-sai:sai`): tells Claude when to hand a task to Sai and how to run it to
   the end, including permission requests and sign-in links.
 

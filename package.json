@@ -4,6 +4,6 @@
   "description": "Pins the Sai MCP server that this plugin runs. Claude Code installs it from package-lock.json.",
   "license": "MIT",
   "dependencies": {
-    "@simular-ai/sai-mcp": "0.3.0"
+    "@simular-ai/sai-mcp": "0.4.0"
   }
 }
