@@ -11,5 +11,24 @@
   "homepage": "https://platform.simular.ai",
   "repository": "https://github.com/simular-ai/sai-claude-plugin",
   "license": "MIT",
-  "keywords": ["computer-use", "browser-automation", "desktop-automation", "agent", "mcp"]
+  "keywords": [
+    "computer-use",
+    "browser-automation",
+    "desktop-automation",
+    "agent",
+    "mcp"
+  ],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "config_schema": {
+        "api_key": {
+          "type": "secret",
+          "env": "SAI_API_KEY",
+          "label": "Sai API key",
+          "description": "Your Sai API key (sapi_...). Create one at https://platform.simular.ai/api-keys.",
+          "required": true
+        }
+      }
+    }
+  }
 }
