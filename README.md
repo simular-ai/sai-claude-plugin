@@ -1,19 +1,24 @@
 # Sai by Simular
 
-Give Claude a computer. This plugin lets Claude Code hand tasks to
-[Sai](https://platform.simular.ai), Simular's computer-use agent, #1 on
-OSWorld 2.0. Sai uses apps and websites the way a person does, by seeing the
-screen, clicking and typing, so Claude can get work done where there is no
-API: web apps behind a login, admin consoles, desktop software, forms with no
-import. Sai runs on a cloud computer Simular hosts; the free plan includes one.
+Give your AI agent a cloud computer to automate websites and desktop apps.
+[Sai](https://platform.simular.ai), Simular's computer-use agent, handles tasks
+behind logins and workflows without APIs on a cloud computer hosted by Simular.
 
-## Compatibility
+This repository contains packages for three hosts:
+
+| Host | Package location | Setup |
+| --- | --- | --- |
+| Claude Code and Cowork | Repository root | Instructions below |
+| Hermes | `hermes/` | [Hermes setup](hermes/README.md) |
+| OpenClaw | `openclaw/` | [OpenClaw setup and ClawHub publishing](openclaw/README.md) |
+
+## Claude compatibility
 
 The Sai tools run in **Claude Code and Cowork** through a local stdio MCP
 server. They do **not** run in claude.ai chat. See
 [Claude's plugin compatibility documentation](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
 
-## Install
+## Install in Claude
 
 1. Sign in at [platform.simular.ai](https://platform.simular.ai) and create an
    API key under [API Keys](https://platform.simular.ai/api-keys).
@@ -26,35 +31,9 @@ type Hello from Sai, and tell me the window title."
 
 ## Install in OpenClaw
 
-OpenClaw loads this repository as a Claude bundle (skill and MCP server). It
-does not support Claude Code's API key prompt, so the key comes from the
-`SAI_API_KEY` environment variable instead.
-
-1. Install the bundle:
-
-   ```bash
-   openclaw plugins install git:github.com/simular-ai/sai-claude-plugin
-   ```
-
-2. Put your API key where the OpenClaw Gateway can read it, for example in
-   `~/.openclaw/.env`:
-
-   ```bash
-   SAI_API_KEY=sapi_YOUR_KEY
-   ```
-
-3. Point the `sai` MCP server at that variable. A server in your OpenClaw
-   config replaces the bundle's server of the same name:
-
-   ```bash
-   openclaw mcp set sai '{"command":"npx","args":["-y","@simular-ai/sai-mcp@0.4.0"],"env":{"SAI_API_KEY":"${SAI_API_KEY}"}}'
-   ```
-
-   Keep the single quotes so your shell does not expand `${SAI_API_KEY}`;
-   OpenClaw resolves it when it loads the config. Without this step the server
-   starts without a usable key and every call is rejected.
-
-Check it with `openclaw plugins inspect sai` and `openclaw mcp status`.
+Use the standalone [openclaw/ package](openclaw/README.md), including its
+API key configuration instructions. From a repository checkout, run
+`openclaw plugins install ./openclaw`.
 
 ## Install in Hermes
 
@@ -78,13 +57,17 @@ Each host reads its own files from the same repository:
 | Host        | Manifest                     | MCP config  | API key from                    |
 | ----------- | ---------------------------- | ----------- | ------------------------------- |
 | Claude Code | `.claude-plugin/plugin.json` | `.mcp.json` | the install prompt (`userConfig`) |
-| OpenClaw    | `.claude-plugin/plugin.json` | `.mcp.json`, overridden in your OpenClaw config | `SAI_API_KEY` |
+| OpenClaw    | `openclaw/.claude-plugin/plugin.json` | `openclaw/.mcp.json`, overridden in your OpenClaw config | `SAI_API_KEY` |
 | Hermes      | `hermes/plugin.json`         | `hermes/mcp.json` | Settings > Plugins or `SAI_API_KEY` |
 
-All three run the same pinned `@simular-ai/sai-mcp` version and the same skill
-(`hermes/skills/sai/SKILL.md` is a copy of `skills/sai/SKILL.md`). When you bump
-the version or edit the skill, change it in `package.json`, `hermes/mcp.json`,
-both skill files and the OpenClaw command above.
+All three pin the same MCP server version. When updating it, change the root
+`package.json` and lockfile, `hermes/mcp.json`, `openclaw/.mcp.json`, and the
+OpenClaw README configuration command. Keep the skill copies in
+`skills/sai/`, `hermes/skills/sai/`, and `openclaw/skills/sai/` identical.
+Keep `openclaw/assets/icon.png` identical to `.claude-plugin/icon.png`.
+
+The following package details describe the root Claude package; see each
+host's README for its launch and configuration behavior.
 
 ## Data and network
 
@@ -117,6 +100,13 @@ the lockfile from this package.
 The `icon` field is for the directory listing; Claude Code ignoring it at load
 time is expected. The scanner's notice that it accepted `.claude-plugin/icon.png`
 as an image is informational.
+
+## ClawHub listing metadata
+
+Publish only `openclaw/` to ClawHub. Its `package.json` owns the OpenClaw
+listing title, description, and version; its `assets/icon.png` supplies the
+logo. The root package description stays host-neutral. See the
+[OpenClaw publishing instructions](openclaw/README.md#publishing-to-clawhub).
 
 ## License
 

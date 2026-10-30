@@ -1,9 +1,11 @@
 {
   "name": "simular-sai-claude-plugin",
   "private": true,
-  "description": "Pins the Sai MCP server that this plugin runs. Claude Code installs it from package-lock.json.",
+  "description": "Give your AI agent a cloud computer to automate websites and desktop apps.",
   "license": "MIT",
   "dependencies": {
     "@simular-ai/sai-mcp": "0.4.0"
-  }
+  },
+  "displayName": "Sai by Simular",
+  "version": "0.1.3"
 }

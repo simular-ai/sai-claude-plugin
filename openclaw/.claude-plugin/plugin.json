@@ -1,0 +1,20 @@
+{
+  "name": "simular-sai",
+  "displayName": "Sai by Simular",
+  "version": "0.1.4",
+  "description": "Give OpenClaw a cloud computer to automate websites and desktop apps.",
+  "author": {
+    "name": "Simular",
+    "url": "https://simular.ai"
+  },
+  "homepage": "https://platform.simular.ai",
+  "repository": "https://github.com/simular-ai/sai-claude-plugin",
+  "license": "MIT",
+  "icon": "./assets/icon.png",
+  "keywords": [
+    "computer-use",
+    "browser-automation",
+    "desktop-automation",
+    "agent"
+  ]
+}
