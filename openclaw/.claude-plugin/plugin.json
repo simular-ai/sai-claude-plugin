@@ -1,7 +1,7 @@
 {
   "name": "simular-sai",
   "displayName": "Sai by Simular",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Give OpenClaw a cloud computer to automate websites and desktop apps.",
   "author": {
     "name": "Simular",
