@@ -34,7 +34,7 @@ type Hello from Sai, and tell me the window title."
 
 - **MCP server** `sai`: the open-source
   [`@simular-ai/sai-mcp`](https://www.npmjs.com/package/@simular-ai/sai-mcp)
-  package, pinned to `0.4.0` and started with `npx`. Tools: start a task, wait
+  package, pinned to `0.5.0` and started with `npx`. Tools: start a task, wait
   for it, answer permission requests, stop it, upload a file, list computers
   and models, and hand the screen to a person with a link.
 - **Skill** `simular-sai:sai`: tells Hermes when to hand a task to Sai and how
@@ -42,7 +42,7 @@ type Hello from Sai, and tell me the window title."
 
 ## Data and network
 
-- `npx` downloads `@simular-ai/sai-mcp@0.4.0` and its dependencies from the
+- `npx` downloads `@simular-ai/sai-mcp@0.5.0` and its dependencies from the
   npm registry on first start.
 - The MCP server sends your tasks, the files you ask it to upload and your API
   key to the Sai API at `https://api.simular.ai`, which runs the task on your

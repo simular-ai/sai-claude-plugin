@@ -32,7 +32,7 @@ supplied through the configured server, which replaces the bundle's `sai`
 server:
 
 ```bash
-openclaw mcp set sai '{"command":"npx","args":["-y","@simular-ai/sai-mcp@0.4.0"],"env":{"SAI_API_KEY":"${SAI_API_KEY}"}}'
+openclaw mcp set sai '{"command":"npx","args":["-y","@simular-ai/sai-mcp@0.5.0"],"env":{"SAI_API_KEY":"${SAI_API_KEY}"}}'
 ```
 
 Keep the single quotes so OpenClaw resolves the variable when loading its
@@ -71,7 +71,7 @@ the configuration command above aligned with the other hosts.
 
 ## Data and network
 
-- `npx` downloads `@simular-ai/sai-mcp@0.4.0` and its dependencies from npm on
+- `npx` downloads `@simular-ai/sai-mcp@0.5.0` and its dependencies from npm on
   first start.
 - The server sends tasks, requested uploads, and your API key to
   `https://api.simular.ai`. Tasks use your Sai account's credit or free-plan
